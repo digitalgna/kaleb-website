@@ -79,7 +79,7 @@ export default function HeroSection() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-5xl md:text-7xl font-bold font-display mb-6 leading-tight"
           >
-            {heroTitle.split(' ').map((word, i) => 
+            {heroTitle.split(' ').map((word: string, i: number) => 
               word.toLowerCase().includes('majesty') || word.toLowerCase().includes('niagara') || word.toLowerCase().includes('falls') ? (
                 <span key={i} className="gradient-text">{word} </span>
               ) : (
