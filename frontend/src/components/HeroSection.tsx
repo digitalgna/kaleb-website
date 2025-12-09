@@ -8,7 +8,7 @@ import { useCMS } from '@/contexts/CMSContext'
 export default function HeroSection() {
   const { hero, content, loading } = useCMS()
 
-  const heroTitle = (content && content['hero_title']) || (hero && hero.title) || 'Experience the Majesty of Niagara Falls'
+  const heroTitle: string = (content && content['hero_title']) || (hero && hero.title) || 'Experience the Majesty of Niagara Falls'
   const heroSubtitle = (content && content['hero_subtitle']) || (hero && hero.subtitle) || 'Small group and private tours designed for unforgettable memories'
   const primaryButtonText = (content && content['hero_primary_button']) || (hero && hero.primary_button_text) || 'Book Now'
   const primaryButtonLink = (hero && hero.primary_button_link) || '/book'
