@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "postinstall": "echo 'Dependencies installed!'"
+    "postinstall": "echo 'Dependencies installed!'",
+     "build": "echo 'No build needed for backend'"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
