@@ -1,15 +1,11 @@
 {
-  "name": "yeha-niagara-tours-backend",
+  "name": "kaleb-website",
   "version": "1.0.0",
-  "description": "Premium Niagara Falls Tours Website - Backend API",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "build": "npm run start:backend",
-    "build:backend": "cd backend && npm run build",
-    "start:backend": "cd backend && npm start",
-    "install:all": "npm install && cd ../backend && npm install"
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm install && npm run build",
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm install && npm start"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
