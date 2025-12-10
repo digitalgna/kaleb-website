@@ -5,9 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "npm run build:backend",
-    "build:frontend": "cd backend && npm install && npm run build",
-    "start:backend": "cd backend && npm install && npm start"
+    "build": "echo 'No build step required for backend'"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
