@@ -42,7 +42,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -68,6 +73,11 @@ app.use(errorHandler);
 // Database sync and server start
 const startServer = async () => {
   try {
+    console.log('🔌 Attempting to connect to database...');
+    console.log(`   Host: ${process.env.DB_HOST || 'localhost'}`);
+    console.log(`   Database: ${process.env.DB_NAME || 'yeha_tours'}`);
+    console.log(`   User: ${process.env.DB_USER || 'root'}`);
+    
     await testConnection();
     
     // Sync models (set force: false in production)
@@ -75,11 +85,20 @@ const startServer = async () => {
     console.log('✅ Database models synchronized.');
 
     app.listen(PORT, () => {
-      console.log(`🚀 Server running on http://localhost:${PORT}`);
+      console.log(`🚀 Server running on port ${PORT}`);
       console.log(`📡 API endpoints available at http://localhost:${PORT}/api`);
     });
   } catch (error) {
     console.error('❌ Failed to start server:', error);
+    console.error('\n📋 Required Environment Variables:');
+    console.error('   DB_HOST - MySQL database host');
+    console.error('   DB_USER - MySQL database user');
+    console.error('   DB_PASSWORD - MySQL database password');
+    console.error('   DB_NAME - MySQL database name');
+    console.error('\n💡 Make sure you have:');
+    console.error('   1. Created a MySQL database on Render (or external service)');
+    console.error('   2. Set all database environment variables in Render dashboard');
+    console.error('   3. Verified the database is accessible from your Render service');
     process.exit(1);
   }
 };
