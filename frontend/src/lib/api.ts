@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://yehaniagara.magersoftware.com//api'
 
 // Type for admin request options that allows objects in body
 type AdminRequestOptions = Omit<RequestInit, 'body'> & {
@@ -88,7 +88,12 @@ export const api = {
       return res.json()
     } catch (error: any) {
       if (error.message === 'Failed to fetch' || error.name === 'TypeError') {
-        throw new Error(`Cannot connect to backend server. Make sure it's running on ${API_URL.replace('/api', '')}. Run: npm run server`)
+        const isProduction = API_URL.includes('yehaniagara.magersoftware.com') || API_URL.includes('vercel.app')
+        if (isProduction) {
+          throw new Error(`Cannot connect to backend API at ${API_URL}. Please check your backend server is running and CORS is configured.`)
+        } else {
+          throw new Error(`Cannot connect to backend server. Make sure it's running on ${API_URL.replace('/api', '')}. Run: npm run server`)
+        }
       }
       throw error
     }
@@ -117,7 +122,12 @@ export const api = {
       return res.json()
     } catch (error: any) {
       if (error.message === 'Failed to fetch' || error.name === 'TypeError') {
-        throw new Error(`Cannot connect to backend server. Make sure it's running on ${API_URL.replace('/api', '')}`)
+        const isProduction = API_URL.includes('yehaniagara.magersoftware.com') || API_URL.includes('vercel.app')
+        if (isProduction) {
+          throw new Error(`Cannot connect to backend API at ${API_URL}. Please check your backend server is running and CORS is configured.`)
+        } else {
+          throw new Error(`Cannot connect to backend server. Make sure it's running on ${API_URL.replace('/api', '')}`)
+        }
       }
       throw error
     }

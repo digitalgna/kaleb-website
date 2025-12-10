@@ -67,7 +67,7 @@ canada-tour/
    
    Create `frontend/.env.local`:
    ```env
-   NEXT_PUBLIC_API_URL=http://localhost:5000/api
+   NEXT_PUBLIC_API_URL=https://yehaniagara.magersoftware.com//api
    ```
 
 4. **Setup database**
@@ -84,7 +84,7 @@ canada-tour/
    
    # Or run separately:
    npm run dev:frontend  # Frontend on http://localhost:3000
-   npm run dev:backend   # Backend on http://localhost:5000
+   npm run dev:backend   # Backend on https://yehaniagara.magersoftware.com/
    ```
 
 ## 📚 Available Scripts
@@ -147,7 +147,7 @@ Frontend runs on http://localhost:3000
 cd backend
 npm start
 ```
-Backend API runs on http://localhost:5000
+Backend API runs on https://yehaniagara.magersoftware.com/
 
 ### Database
 - Default database: `yeha_tours`

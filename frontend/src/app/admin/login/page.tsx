@@ -27,7 +27,12 @@ export default function AdminLogin() {
     } catch (err: any) {
       const errorMessage = err.message || 'Login failed'
       if (errorMessage.includes('Cannot connect') || errorMessage.includes('Failed to fetch')) {
-        setError('Backend server is not running. Please start it with: npm run server')
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://yehaniagara.magersoftware.com//api'
+        if (apiUrl.includes('yehaniagara.magersoftware.com') || apiUrl.includes('vercel.app')) {
+          setError('Cannot connect to backend API. Please verify the backend server is running and CORS is configured correctly.')
+        } else {
+          setError('Backend server is not running. Please start it with: npm run server')
+        }
       } else {
         setError(errorMessage)
       }
@@ -116,7 +121,7 @@ export default function AdminLogin() {
                   <div className="mb-1">Quick fix:</div>
                   <div className="text-primary-400">1. Open a new terminal</div>
                   <div className="text-primary-400">2. Run: <span className="text-white">npm run server</span></div>
-                  <div className="text-primary-400">3. Wait for: "Server running on http://localhost:5000"</div>
+                  <div className="text-primary-400">3. Wait for: "Server running on https://yehaniagara.magersoftware.com/"</div>
                   <div className="text-primary-400">4. Try logging in again</div>
                 </div>
               )}

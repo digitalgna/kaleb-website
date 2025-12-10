@@ -12,16 +12,16 @@ This error typically means the frontend cannot connect to the backend API server
    npm run server
    
    # Or check if it's already running:
-   curl http://localhost:5000/api/health
+   curl https://yehaniagara.magersoftware.com//api/health
    ```
 
 2. **Verify Backend is on Port 5000**
-   - Check terminal output for: `🚀 Server running on http://localhost:5000`
+   - Check terminal output for: `🚀 Server running on https://yehaniagara.magersoftware.com/`
    - If you see errors, check the database connection
 
 3. **Check Environment Variables**
    - Make sure you have a `.env` file in the root directory
-   - Verify `NEXT_PUBLIC_API_URL=http://localhost:5000/api`
+   - Verify `NEXT_PUBLIC_API_URL=https://yehaniagara.magersoftware.com//api`
    - Restart Next.js dev server after changing `.env` files
 
 4. **Database Connection Issues**
@@ -119,11 +119,11 @@ The backend already has CORS enabled. If you still see errors:
    node server.js
    ```
    Should see: `✅ Database connection established successfully.`
-   Should see: `🚀 Server running on http://localhost:5000`
+   Should see: `🚀 Server running on https://yehaniagara.magersoftware.com/`
 
 2. **Test API Endpoint:**
    ```bash
-   curl http://localhost:5000/api/health
+   curl https://yehaniagara.magersoftware.com//api/health
    ```
    Should return: `{"status":"ok","message":"YEHA Tours API is running"}`
 
@@ -153,7 +153,7 @@ DB_NAME=yeha_tours
 JWT_SECRET=your_super_secret_jwt_key_change_this
 
 # API
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
+NEXT_PUBLIC_API_URL=https://yehaniagara.magersoftware.com//api
 PORT=5000
 
 # Environment

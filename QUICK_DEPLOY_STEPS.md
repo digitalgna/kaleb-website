@@ -68,14 +68,22 @@
    }
    ```
 
-2. **Build locally:**
+2. **Create environment file:**
    ```bash
    cd frontend
+   # Create .env.local file with your API URL
    echo "NEXT_PUBLIC_API_URL=https://yehaniagara.magersoftware.com/api" > .env.local
+   ```
+   **Windows CMD:** `echo NEXT_PUBLIC_API_URL=https://yehaniagara.magersoftware.com/api > .env.local`
+   
+   Verify the file contains: `NEXT_PUBLIC_API_URL=https://yehaniagara.magersoftware.com/api`
+
+3. **Build locally:**
+   ```bash
    npm install
    npm run build
    ```
-   This creates `frontend/out` folder
+   This creates `frontend/out` folder with the API URL baked in
 
 3. **Upload to cPanel:**
    - Upload ALL contents of `frontend/out` folder

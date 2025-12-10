@@ -70,7 +70,7 @@ export default function CMSMediaPage() {
   }
 
   const getFileUrl = (filePath: string) => {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://yehaniagara.magersoftware.com//api'
     return `${API_URL.replace('/api', '')}${filePath}`
   }
 

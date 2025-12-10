@@ -20,7 +20,7 @@ DB_USER=root
 DB_PASSWORD=your_mysql_password
 DB_NAME=yeha_tours
 JWT_SECRET=your_super_secret_jwt_key
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
+NEXT_PUBLIC_API_URL=https://yehaniagara.magersoftware.com//api
 PORT=5000
 NODE_ENV=development
 ```
@@ -86,7 +86,7 @@ npm run server
 ### 5. Access the Application
 
 - **Frontend:** http://localhost:3000
-- **Backend API:** http://localhost:5000/api
+- **Backend API:** https://yehaniagara.magersoftware.com//api
 - **Admin Panel:** http://localhost:3000/admin/login
 
 ## Project Structure
