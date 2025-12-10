@@ -67,7 +67,7 @@ canada-tour/
    
    Create `frontend/.env.local`:
    ```env
-   NEXT_PUBLIC_API_URL=https://yehaniagara.magersoftware.com//api
+   NEXT_PUBLIC_API_URL=https://yehaniagara.magersoftware.com/api
    ```
 
 4. **Setup database**
