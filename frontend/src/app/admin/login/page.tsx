@@ -116,13 +116,22 @@ export default function AdminLogin() {
             >
               <div className="font-semibold mb-1">⚠️ Connection Error</div>
               <div>{error}</div>
-              {error.includes('backend server') && (
+              {error.includes('backend server') && !error.includes('CORS') && (
                 <div className="mt-3 p-3 bg-slate-800 rounded-lg text-xs font-mono text-gray-300">
-                  <div className="mb-1">Quick fix:</div>
+                  <div className="mb-1">Quick fix (Local Development):</div>
                   <div className="text-primary-400">1. Open a new terminal</div>
                   <div className="text-primary-400">2. Run: <span className="text-white">npm run server</span></div>
-                  <div className="text-primary-400">3. Wait for: "Server running on https://yehaniagara.magersoftware.com/"</div>
+                  <div className="text-primary-400">3. Wait for: "Server running on http://localhost:5000"</div>
                   <div className="text-primary-400">4. Try logging in again</div>
+                </div>
+              )}
+              {error.includes('CORS') && (
+                <div className="mt-3 p-3 bg-slate-800 rounded-lg text-xs font-mono text-gray-300">
+                  <div className="mb-1">Production Troubleshooting:</div>
+                  <div className="text-primary-400">1. Verify backend is running: <span className="text-white">https://yehaniagara.magersoftware.com/api/health</span></div>
+                  <div className="text-primary-400">2. Check backend CORS_ORIGIN includes your Vercel domain</div>
+                  <div className="text-primary-400">3. Verify NEXT_PUBLIC_API_URL is set in Vercel environment variables</div>
+                  <div className="text-primary-400">4. Check browser console (F12) for detailed error messages</div>
                 </div>
               )}
             </motion.div>
