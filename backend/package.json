@@ -2,12 +2,12 @@
   "name": "kaleb-website",
   "version": "1.0.0",
   "description": "Backend for Kaleb Website",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "postinstall": "echo 'Dependencies installed!'",
-     "build": "echo 'No build needed for backend'"
+    "start": "node server.js",
+    "build": "npm run build:backend",
+    "build:frontend": "cd backend && npm install && npm run build",
+    "start:backend": "cd backend && npm install && npm start"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
