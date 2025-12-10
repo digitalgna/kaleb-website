@@ -1,11 +1,12 @@
 {
   "name": "kaleb-website",
   "version": "1.0.0",
+  "description": "Backend for Kaleb Website",
+  "main": "index.js",
   "scripts": {
-    "build": "npm run build:frontend",
-    "build:frontend": "cd frontend && npm install && npm run build",
-    "start": "npm run start:backend",
-    "start:backend": "cd backend && npm install && npm start"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "postinstall": "echo 'Dependencies installed!'"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,6 +21,10 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Mager Software PLC",
+  "license": "MIT"
 }
-
