@@ -62,6 +62,25 @@ app.use('/api/cms', cmsRoutes);
 // Serve uploaded files
 app.use('/uploads', express.static(path.join(__dirname, '..', 'frontend', 'public', 'uploads')));
 
+// Root route - API information
+app.get('/', (req, res) => {
+  res.json({
+    message: 'YEHA Niagara Tours API',
+    version: '1.0.0',
+    status: 'running',
+    endpoints: {
+      health: '/api/health',
+      tours: '/api/tours',
+      bookings: '/api/bookings',
+      testimonials: '/api/testimonials',
+      contact: '/api/contact',
+      admin: '/api/admin',
+      cms: '/api/cms'
+    },
+    documentation: 'API endpoints are available under /api/*'
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'YEHA Tours API is running' });
