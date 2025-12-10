@@ -1,5 +1,10 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
 
+// Type for admin request options that allows objects in body
+type AdminRequestOptions = Omit<RequestInit, 'body'> & {
+  body?: BodyInit | object | null
+}
+
 export const api = {
   // Tours
   getTours: async () => {
@@ -90,7 +95,7 @@ export const api = {
   },
 
   // Admin authenticated requests
-  adminRequest: async (endpoint: string, options: Omit<RequestInit, 'body'> & { body?: BodyInit | object | null } = {}) => {
+  adminRequest: async (endpoint: string, options: AdminRequestOptions = {}) => {
     const token = localStorage.getItem('admin_token')
     const { body, ...restOptions } = options
     
