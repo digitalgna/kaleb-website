@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://yehaniagara.magersoftware.com//api'
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://yehaniagara.magersoftware.com/api'
 
 // Type for admin request options that allows objects in body
 type AdminRequestOptions = Omit<RequestInit, 'body'> & {

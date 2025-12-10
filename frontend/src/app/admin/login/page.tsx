@@ -27,7 +27,7 @@ export default function AdminLogin() {
     } catch (err: any) {
       const errorMessage = err.message || 'Login failed'
       if (errorMessage.includes('Cannot connect') || errorMessage.includes('Failed to fetch')) {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://yehaniagara.magersoftware.com//api'
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://yehaniagara.magersoftware.com/api'
         if (apiUrl.includes('yehaniagara.magersoftware.com') || apiUrl.includes('vercel.app')) {
           setError('Cannot connect to backend API. Please verify the backend server is running and CORS is configured correctly.')
         } else {
